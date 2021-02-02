@@ -9,6 +9,10 @@ app.get("/", function (req, res) {
  
 });
 
+app.post("/", function (req,res){
+      console.log('postman pat in da house')
+})
+
 // const query = "Barcelona";  
 // const apiKey = "b7eabe995546dde5f08786249f6b2228"
 // const unit = 'metric'
