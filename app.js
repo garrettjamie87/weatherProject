@@ -13,15 +13,15 @@ app.get("/", function (req, res) {
 
     response.on("data", function(data){
           const weatherData = JSON.parse(data)
-          console.log(weatherData);
+      //     console.log(weatherData);
           const temp = weatherData.main.temp
-          console.log(temp)
+      //     console.log(temp)
           const weatherDescription = weatherData.weather[0].description
-          console.log(weatherDescription)      
+      //     console.log(weatherDescription)   
+          res.send(`The temp in BCN is ${temp} degrees Celcius.`)   
       })
   });
 
-  res.send("server is running bread bin");
 });
 
 //runs in terminal
