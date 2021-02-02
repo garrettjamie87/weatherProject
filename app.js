@@ -5,8 +5,11 @@ const app = express();
 
 //runs in browser (home)
 app.get("/", function (req, res) {
-  const url =
-    "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&APPID=b7eabe995546dde5f08786249f6b2228&units=metric";
+  
+  const query = "Barcelona";  
+  const apiKey = "b7eabe995546dde5f08786249f6b2228"
+  const unit = 'metric'
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&APPID=" + apiKey + "&units=" + unit;
 
   https.get(url, function (response) {
     //     console.log(response.statusCode);
