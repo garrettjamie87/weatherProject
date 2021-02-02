@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
       //     console.log(temp)
           const weatherDescription = weatherData.weather[0].description
       //     console.log(weatherDescription)   
-          res.send(`The temp in BCN is ${temp} degrees Celcius.`)   
+          res.send(`<h1>The temp in BCN is ${temp} degrees Celcius.</h1>`)   
       })
   });
 
