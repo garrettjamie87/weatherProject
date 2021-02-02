@@ -13,15 +13,13 @@ app.get("/", function (req, res) {
 
     response.on("data", function (data) {
       const weatherData = JSON.parse(data);
-      //     console.log(weatherData);
       const temp = weatherData.main.temp;
-      //     console.log(temp)
       const weatherDescription = weatherData.weather[0].description;
-      //     console.log(weatherDescription)
       const icon = weatherData.weather[0].icon;
-
+      const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
       res.write(`<p>the weather is currently ${weatherDescription}</p>`);
       res.write(`<h1>The temp in BCN is ${temp} degrees Celcius.</h1>`);
+      res.write(`<img src=${imageURL}>`);
       res.send();
     });
   });
