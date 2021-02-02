@@ -9,19 +9,22 @@ app.get("/", function (req, res) {
     "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&APPID=b7eabe995546dde5f08786249f6b2228&units=metric";
 
   https.get(url, function (response) {
-    console.log(response.statusCode);
+    //     console.log(response.statusCode);
 
-    response.on("data", function(data){
-          const weatherData = JSON.parse(data)
+    response.on("data", function (data) {
+      const weatherData = JSON.parse(data);
       //     console.log(weatherData);
-          const temp = weatherData.main.temp
+      const temp = weatherData.main.temp;
       //     console.log(temp)
-          const weatherDescription = weatherData.weather[0].description
-      //     console.log(weatherDescription)   
-          res.send(`<h1>The temp in BCN is ${temp} degrees Celcius.</h1>`)   
-      })
-  });
+      const weatherDescription = weatherData.weather[0].description;
+      //     console.log(weatherDescription)
+      const icon = weatherData.weather[0].icon;
 
+      res.write(`<p>the weather is currently ${weatherDescription}</p>`);
+      res.write(`<h1>The temp in BCN is ${temp} degrees Celcius.</h1>`);
+      res.send();
+    });
+  });
 });
 
 //runs in terminal
