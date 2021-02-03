@@ -12,6 +12,10 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "public/style.css");
+});
+
 app.post("/", function (req, res) {
   const query = req.body.cityName;
   const apiKey = "b7eabe995546dde5f08786249f6b2228";
